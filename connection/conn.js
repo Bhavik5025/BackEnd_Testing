@@ -1,2 +1,2 @@
 const mongoose=require("mongoose");
-mongoose.connect("mongodb://localhost:27017/Job_Recruitment_System").catch(error => handleError(error));
+mongoose.connect("mongodb+srv://fenil:Svsm4142@ocms.ggujxsk.mongodb.net/Job_recruitment_system").catch(error => handleError(error));

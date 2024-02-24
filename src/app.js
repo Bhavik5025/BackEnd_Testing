@@ -6,6 +6,9 @@ const Router=require("../routers/admin/login");
 const Company=require("../routers/Company/Company_apis");
 const jobber=require("../routers/Job_Seeker/Job_Seeker_apis");
 app.use(express.json());
+app.get("/loading",async(req,res)=>{
+   res.send("server is running")
+})
 app.use(cors({
     origin:"http://localhost:5000"
 }

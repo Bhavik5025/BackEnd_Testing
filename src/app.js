@@ -9,10 +9,10 @@ app.use(express.json());
 app.get("/loading",async(req,res)=>{
    res.send("server is running")
 })
-app.use(cors({
-    origin:"http://localhost:5000"
-}
-));
+// app.use(cors({
+//     origin:"http://localhost:5000"
+// }
+// ));
 app.use(Router);
 app.use(Company);
 app.use(jobber);

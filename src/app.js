@@ -13,6 +13,8 @@ app.get("/loading",async(req,res)=>{
 //     origin:"http://localhost:5000"
 // }
 // ));
+app.use(cors());
+
 app.use(Router);
 app.use(Company);
 app.use(jobber);

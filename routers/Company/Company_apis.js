@@ -52,6 +52,22 @@ Router.get("/verified_company_data", async (req, res) => {
   const Data = await Company.find({ Verified: "true" });
   res.json({ Data });
 });
+Router.get("/verified_company_data_For_Visit", async (req, res) => {
+  try {
+    // Find all company dashboards and retrieve their emails
+    const dashboardCompanies = await Company_dashboard.find();
+    const dashboardEmails = dashboardCompanies.map(company => company.Email);
+
+    // Find companies that have email IDs present in Company_dashboard
+    const matchingCompanies = await Company.find({ Email: { $in: dashboardEmails }, Verified: true });
+
+    // Return the list of matching companies
+    res.json({ Data: matchingCompanies });
+  } catch (error) {
+    console.error("Error fetching company data:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 Router.post("/company_details", async (req, res) => {
   console.log(req.body.email);
   const Data = await Company.findOne({ Email: req.body.email });
